@@ -20,7 +20,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+          # We removed 'cache: npm' here to prevent builds from failing 
+          # when you haven't committed a package-lock.json file.
 
       - name: Install Dependencies
         shell: pwsh
