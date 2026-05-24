@@ -1,19 +1,38 @@
 {
-  "name": "html-to-exe",
+  "name": "html-js-to-exe-app",
   "version": "1.0.0",
+  "description": "My HTML & JS App packaged into a Windows EXE",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder --win"
+    "build": "electron-builder build --win --x64"
   },
+  "keywords": [],
+  "author": "Your Name",
+  "license": "ISC",
+  "dependencies": {},
   "devDependencies": {
-    "electron": "^30.0.0",
-    "electron-builder": "^24.0.0"
+    "electron": "^29.3.0",
+    "electron-builder": "^24.13.3"
   },
   "build": {
-    "appId": "com.example.app",
+    "appId": "com.example.htmljstoexe",
+    "productName": "MyHtmlJsApp",
+    "files": [
+      "main.js",
+      "index.html",
+      "script.js",
+      "style.css"
+    ],
     "win": {
-      "target": "nsis"
+      "target": [
+        "portable",
+        "nsis"
+      ],
+      "icon": "icon.ico"
+    },
+    "directories": {
+      "output": "dist"
     }
   }
 }
