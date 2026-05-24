@@ -20,8 +20,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          # We removed 'cache: npm' here to prevent builds from failing 
-          # when you haven't committed a package-lock.json file.
 
       - name: Install Dependencies
         shell: pwsh
@@ -34,8 +32,6 @@ jobs:
 
       - name: Compile and Package App
         run: npm run build
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload EXE Artifact
         uses: actions/upload-artifact@v4
